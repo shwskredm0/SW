@@ -1,1 +1,137 @@
-file:///C:/Users/%EC%A0%84%EC%84%9C%ED%9A%A8/.gemini/antigravity/scratch/dreamgap/index.html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>DreamGap — 수면 유도와 강제 기상</title>
+  <!-- Google Fonts: Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 몽환적인 밤하늘 배경 -->
+  <div class="sky-background">
+    <div class="ambient-stars"></div>
+    <div class="ambient-clouds">
+      <div class="cloud cloud-1"></div>
+      <div class="cloud cloud-2"></div>
+    </div>
+  </div>
+  <!-- 모바일 뷰포트 컨테이너 -->
+  <div class="app-container">
+    
+    <!-- 상단 헤더 및 사운드 토글 -->
+    <header class="app-header">
+      <div class="logo">DreamGap</div>
+      <button id="sound-toggle" class="sound-btn" aria-label="사운드 토글">
+        <!-- 기본값: 음소거 상태 아이콘 -->
+        <svg id="sound-icon" viewBox="0 0 24 24" width="24" height="24">
+          <path fill="currentColor" d="M3.63 3.63L2.22 5.05L7 9.83v9.17l4-4h3.17l4.78 4.78l1.41-1.41L3.63 3.63zM12 15l-3-3v-1.17l3 3V15zM19 12c0 .6-.1 1.17-.29 1.71l1.48 1.48c.51-1 .81-2.12.81-3.19c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zm-2.5 0c0-.85-.36-1.61-.94-2.15l1.45 1.45c.18-.32.49-.43.49-.7zm-4.5-9L9.5 5.5v3.17l2.5 2.5V3z"/>
+        </svg>
+      </button>
+    </header>
+    <!-- 메인 화면 영역 -->
+    <main class="app-screens">
+      
+      <!-- 화면 1: 메인 메뉴 -->
+      <section id="menu-screen" class="screen active">
+        <div class="hero-container">
+          <div class="surreal-orb"></div>
+          <h1 class="app-title">수면 유도와<br>강제 기상</h1>
+          <p class="app-tagline">수면 유도와 유쾌한 강제 기상을 돕는 몽환적인 프로그램.</p>
+        </div>
+        <div class="menu-actions">
+          <button id="btn-goto-sleep" class="btn btn-primary">
+            <span>수면 유도</span>
+            <small>양과 친구들 세어보기</small>
+          </button>
+          <button id="btn-goto-wakeup" class="btn btn-secondary">
+            <span>기상</span>
+            <small>잠의 유혹 뿌리치기</small>
+          </button>
+        </div>
+      </section>
+      <!-- 화면 2: 수면 유도 (양 세기) -->
+      <section id="sleep-screen" class="screen">
+        <button class="back-btn" data-target="menu-screen" aria-label="뒤로가기">
+          <svg viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8l8 8l1.41-1.41L7.83 13H20v-2z"/>
+          </svg>
+        </button>
+        
+        <div class="starfield-container">
+          <canvas id="sleep-canvas"></canvas>
+        </div>
+        <div class="sleep-world">
+          <!-- 몽환적인 울타리 -->
+          <div class="fence-wrapper">
+            <div class="fence-post"></div>
+            <div class="fence-rail top"></div>
+            <div class="fence-rail bottom"></div>
+            <div class="fence-post"></div>
+          </div>
+          <!-- 캐릭터 동적 생성 경로 -->
+          <div id="character-container"></div>
+        </div>
+        <div class="sleep-stats">
+          <span class="stat-label">세어본 양:</span>
+          <span id="sheep-counter" class="stat-value">0</span>
+        </div>
+        <!-- 캐릭터 대사용 자막창 -->
+        <div id="sleep-subtitles" class="subtitles-container">
+          <div class="subtitle-text">...</div>
+        </div>
+      </section>
+      <!-- 화면 3: 기상 시퀀스 (침대의 유혹) -->
+      <section id="wakeup-screen" class="screen">
+        <button class="back-btn" data-target="menu-screen" aria-label="뒤로가기">
+          <svg viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8l8 8l1.41-1.41L7.83 13H20v-2z"/>
+          </svg>
+        </button>
+        <div class="bedroom-scene" id="bedroom-scene">
+          <!-- 침실 창문 (별밤/아침 햇살) -->
+          <div class="bedroom-window" id="bedroom-window">
+            <div class="window-stars" id="window-stars"></div>
+            <div class="window-glow" id="window-glow"></div>
+          </div>
+          <!-- 침대와 슬리퍼 캐릭터 -->
+          <div class="bed-container" id="bed-container">
+            <!-- characters.js에서 사람 누운 침대 SVG 삽입 -->
+          </div>
+          <!-- 강제 기상 늑대 위치 -->
+          <div class="wolf-spot" id="wolf-spot"></div>
+          <!-- 하울링 파동 연출 -->
+          <div class="howl-ripple-container" id="howl-ripple-container"></div>
+          
+          <!-- 꽃가루/콘페티 이펙트 -->
+          <div class="confetti-container" id="confetti-container"></div>
+        </div>
+        <!-- 하단 조작창 -->
+        <div class="wakeup-overlay" id="wakeup-overlay">
+          <div class="sleepy-dialog" id="sleepy-dialog">
+            "5분만 더....."
+          </div>
+          
+          <div class="wakeup-actions" id="wakeup-actions">
+            <button id="btn-sleep-more" class="btn btn-secondary">더 잘래</button>
+            <button id="btn-wake-up" class="btn btn-glow">일어날래</button>
+          </div>
+        </div>
+        <!-- 최종 결과 화면 -->
+        <div class="results-overlay" id="results-overlay">
+          <h2 id="results-title" class="results-title">인간 승리</h2>
+          <button id="btn-results-back" class="btn btn-primary">메뉴로 돌아가기</button>
+        </div>
+      </section>
+    </main>
+  </div>
+  <!-- 스크립트 파일 임포트 -->
+  <script src="characters.js"></script>
+  <script src="sleep-induction.js"></script>
+  <script src="wake-up.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
