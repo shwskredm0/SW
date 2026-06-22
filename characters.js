@@ -24,40 +24,149 @@ const Characters = {
     `;
   },
 
-  getWeirdOldMan(state='normal'){
-    return `
-    <svg viewBox="0 0 64 64">
-      <ellipse cx="32" cy="56" rx="14" ry="4"
-      fill="rgba(0,0,0,.2)"/>
-      
-      <circle cx="32" cy="18" r="8"
-      fill="#FFD2C4"/>
+ getWeirdOldMan(state='normal'){
+return `
+<svg viewBox="0 0 64 64">
 
-      <path d="M26 24
-      C26 40 38 40 38 24"
-      fill="#fff"/>
+<!-- 그림자 -->
+<ellipse cx="32"
+cy="57"
+rx="14"
+ry="4"
+fill="rgba(0,0,0,.2)"/>
 
-      <path d="M18 34
-      L46 34
-      L42 54
-      L22 54 Z"
-      fill="#E2E6FF"/>
+<!-- 다리 -->
+<rect x="25"
+y="46"
+width="4"
+height="10"
+rx="2"
+fill="#444"/>
 
-      ${
-        state==="staring"
-        ? `
-        <circle cx="28" cy="18" r="2"/>
-        <circle cx="36" cy="18" r="2"/>
-        `
-        : `
-        <path d="M27 18 Q29 20 31 18"
-        stroke="#222"
-        fill="none"/>
-        `
-      }
-    </svg>
-    `;
-  },
+<rect x="35"
+y="46"
+width="4"
+height="10"
+rx="2"
+fill="#444"/>
+
+<!-- 슬리퍼 -->
+<ellipse cx="27"
+cy="56"
+rx="4"
+ry="2"
+fill="#FFA36B"/>
+
+<ellipse cx="37"
+cy="56"
+rx="4"
+ry="2"
+fill="#FFA36B"/>
+
+<!-- 잠옷 몸통 -->
+<path d="
+M18 28
+Q32 24 46 28
+L42 50
+L22 50
+Z"
+fill="#DCE2FF"/>
+
+<!-- 별무늬 -->
+<circle cx="25" cy="38" r="1.5" fill="#FFE89C"/>
+<circle cx="39" cy="35" r="1.5" fill="#FFE89C"/>
+<circle cx="34" cy="43" r="1.2" fill="#FFE89C"/>
+
+<!-- 팔 -->
+<rect x="15"
+y="31"
+width="7"
+height="3"
+rx="2"
+fill="#FFD2C4"
+transform="rotate(-15 15 31)"/>
+
+<rect x="42"
+y="31"
+width="7"
+height="3"
+rx="2"
+fill="#FFD2C4"
+transform="rotate(15 42 31)"/>
+
+<!-- 머리 -->
+<circle cx="32"
+cy="18"
+r="9"
+fill="#FFD2C4"/>
+
+<!-- 옆머리 -->
+<path d="
+M23 15
+Q18 18 22 24"
+stroke="#F2F2F2"
+stroke-width="4"
+fill="none"
+stroke-linecap="round"/>
+
+<path d="
+M41 15
+Q46 18 42 24"
+stroke="#F2F2F2"
+stroke-width="4"
+fill="none"
+stroke-linecap="round"/>
+
+<!-- 윗머리 몇가닥 -->
+<path d="
+M29 10
+Q31 5 33 10"
+stroke="#F2F2F2"
+stroke-width="2"
+fill="none"
+stroke-linecap="round"/>
+
+<path d="
+M33 10
+Q35 4 37 10"
+stroke="#F2F2F2"
+stroke-width="2"
+fill="none"
+stroke-linecap="round"/>
+
+<!-- 수염 -->
+<path d="
+M26 22
+C25 34 39 34 38 22"
+fill="#F8F8F8"/>
+
+${
+state==="staring"
+?`
+<circle cx="28" cy="17" r="2"/>
+<circle cx="36" cy="17" r="2"/>
+`
+:`
+<path d="M27 17 Q29 19 31 17"
+stroke="#222"
+fill="none"/>
+
+<path d="M33 17 Q35 19 37 17"
+stroke="#222"
+fill="none"/>
+`
+}
+
+<!-- 코 -->
+<ellipse cx="32"
+cy="20"
+rx="2"
+ry="1.5"
+fill="#FFB2A8"/>
+
+</svg>
+`;
+},
 
   getPotato(state='normal'){
     return `
