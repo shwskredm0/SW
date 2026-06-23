@@ -1,118 +1,28 @@
 const Characters = {
 
-getSheep(state='normal'){
-  return `
-  <svg viewBox="0 0 64 64">
-
-    <!-- 그림자 -->
-    <ellipse
-    cx="32"
-    cy="56"
-    rx="18"
-    ry="4"
-    fill="rgba(0,0,0,.2)"/>
-
-    <!-- 다리 -->
-    <rect x="18" y="43" width="4" height="11" rx="2" fill="#222"/>
-    <rect x="26" y="43" width="4" height="11" rx="2" fill="#222"/>
-    <rect x="36" y="43" width="4" height="11" rx="2" fill="#222"/>
-    <rect x="44" y="43" width="4" height="11" rx="2" fill="#222"/>
-
-    <!-- 털몸통 -->
-    <g fill="#F5F6FF" stroke="#DDE2FF">
-
-      <circle cx="18" cy="30" r="8"/>
-      <circle cx="26" cy="24" r="10"/>
-      <circle cx="38" cy="24" r="10"/>
-      <circle cx="46" cy="30" r="8"/>
-      <circle cx="32" cy="33" r="13"/>
-      <circle cx="22" cy="36" r="7"/>
-      <circle cx="42" cy="36" r="7"/>
-
-    </g>
-
-    <!-- 얼굴 -->
-    <ellipse
-    cx="48"
-    cy="30"
-    rx="8"
-    ry="7"
-    fill="#2E3142"/>
-
-    <!-- 귀 -->
-    <ellipse
-    cx="45"
-    cy="24"
-    rx="3"
-    ry="2"
-    fill="#2E3142"
-    transform="rotate(-30 45 24)"/>
-
-    <ellipse
-    cx="51"
-    cy="24"
-    rx="3"
-    ry="2"
-    fill="#2E3142"
-    transform="rotate(30 51 24)"/>
-
-    <!-- 꼬리 -->
-    <circle
-    cx="10"
-    cy="31"
-    r="4"
-    fill="#F5F6FF"/>
-
-    ${
-      state==="staring"
-      ? `
-      <!-- 정면 응시 -->
-      <circle cx="28" cy="28" r="3" fill="#FFE89C"/>
-      <circle cx="28" cy="28" r="1"/>
-
-      <circle cx="36" cy="28" r="3" fill="#FFE89C"/>
-      <circle cx="36" cy="28" r="1"/>
-
-      <!-- 킹받는 미소 -->
-      <path
-      d="M30 35
-      Q32 38
-      36 35"
-      stroke="#FF9E8B"
-      stroke-width="1.5"
-      fill="none"
-      stroke-linecap="round"/>
-
-      <!-- 볼 -->
-      <circle cx="25" cy="34" r="2" fill="#FFB2A8"/>
-      <circle cx="39" cy="34" r="2" fill="#FFB2A8"/>
-      `
-      : `
-      <!-- 얄미로운 졸린 눈 -->
-      <path
-      d="M44 29
-      Q46 31
-      48 29"
-      stroke="#FFE89C"
-      stroke-width="1.5"
-      fill="none"
-      stroke-linecap="round"/>
-
-      <!-- 비웃는 입 -->
-      <path
-      d="M47 34
-      Q50 36
-      52 33"
-      stroke="#FF9E8B"
-      stroke-width="1.2"
-      fill="none"
-      stroke-linecap="round"/>
-      `
-    }
-
-  </svg>
-  `;
-},
+  getSheep(state='normal'){
+    return `
+    <svg viewBox="0 0 64 64">
+      <ellipse cx="32" cy="56" rx="16" ry="4" fill="rgba(0,0,0,.2)"/>
+      <circle cx="30" cy="30" r="16" fill="#F5F6FF"/>
+      <circle cx="46" cy="28" r="8" fill="#2E3142"/>
+      <rect x="20" y="42" width="4" height="10" fill="#222"/>
+      <rect x="38" y="42" width="4" height="10" fill="#222"/>
+      ${
+        state==="staring"
+        ? `
+        <circle cx="28" cy="28" r="2"/>
+        <circle cx="36" cy="28" r="2"/>
+        `
+        : `
+        <path d="M44 28 Q46 30 48 28"
+        stroke="#FFE89C"
+        fill="none"/>
+        `
+      }
+    </svg>
+    `;
+  },
 
  getWeirdOldMan(state='normal'){
 return `
@@ -521,137 +431,46 @@ stroke-width="2"/>
 `;
 },
 
-getHumanInBed(state='normal'){
-  return `
-  <svg viewBox="0 0 240 140">
+  getHumanInBed(state='normal'){
+    return `
+    <svg viewBox="0 0 240 140">
 
-    <!-- 침대 다리 -->
-    <rect x="20" y="90" width="8" height="18" fill="#7A5B43"/>
-    <rect x="190" y="90" width="8" height="18" fill="#7A5B43"/>
-
-    <!-- 침대 프레임 -->
     <rect x="20"
     y="80"
     width="180"
     height="20"
-    rx="4"
     fill="#8C6E52"/>
 
-    <!-- 베개 -->
-    <rect
-    x="145"
-    y="48"
-    width="35"
-    height="20"
-    rx="8"
-    fill="#E8EDF7"/>
-
-    <!-- 이불 -->
-    <path d="
-    M30 60
-    Q70 52 120 60
-    Q150 65 180 60
-    L180 85
-    L30 85
-    Z"
+    <rect x="30"
+    y="60"
+    width="150"
+    height="25"
     fill="#B2B8E6"/>
 
-    <!-- 이불 주름 -->
-    <path d="
-    M80 60
-    Q95 68 115 60"
-    stroke="#C8CDF2"
-    stroke-width="2"
-    fill="none"/>
-
-    <!-- 머리 -->
     <circle
     cx="160"
     cy="55"
-    r="14"
+    r="12"
     fill="#FFD2C4"/>
-
-    <!-- 머리카락 -->
-    <path d="
-    M146 52
-    Q150 35 172 40
-    Q180 42 174 54"
-    fill="#3A2D2A"/>
 
     ${
       state==="success"
       ? `
-      <!-- 눈 번쩍 -->
-      <circle cx="155" cy="54" r="2.8"/>
-      <circle cx="166" cy="54" r="2.8"/>
-
-      <!-- 당황 입 -->
-      <ellipse
-      cx="160"
-      cy="63"
-      rx="4"
-      ry="3"/>
+      <circle cx="156" cy="52" r="2"/>
+      <circle cx="166" cy="52" r="2"/>
       `
-      :
-      `
-      <!-- 살짝 킹받는 편안한 눈 -->
-      <path
-      d="M151 53 Q155 56 159 53"
-      stroke="#222"
-      stroke-width="1.5"
-      fill="none"
-      stroke-linecap="round"/>
-
-      <path
-      d="M162 53 Q166 56 170 53"
-      stroke="#222"
-      stroke-width="1.5"
-      fill="none"
-      stroke-linecap="round"/>
-
-      <!-- 얄미운 미소 -->
-      <path
-      d="M156 62
-      Q160 65
-      165 62"
-      stroke="#FF8566"
-      stroke-width="1.5"
-      fill="none"
-      stroke-linecap="round"/>
-
-      <!-- 침 -->
-      <path
-      d="M170 64
-      Q172 68
-      170 72"
-      stroke="#A8E4FF"
-      stroke-width="2"
-      fill="none"/>
-
-      <!-- ZZZ -->
+      : `
       <text
       x="190"
       y="30"
-      font-size="14"
-      fill="#B2B8E6">Z</text>
-
-      <text
-      x="200"
-      y="20"
-      font-size="18"
-      fill="#B2B8E6">Z</text>
+      font-size="15">Z</text>
       `
     }
 
-    <!-- 이불 위 손 -->
-    <circle
-    cx="120"
-    cy="68"
-    r="5"
-    fill="#FFD2C4"/>
+    </svg>
+    `;
+  }
 
-  </svg>
-  `;
-}
+};
 
 window.Characters=Characters;
