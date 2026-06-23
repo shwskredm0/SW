@@ -431,46 +431,137 @@ stroke-width="2"/>
 `;
 },
 
-  getHumanInBed(state='normal'){
-    return `
-    <svg viewBox="0 0 240 140">
+getHumanInBed(state='normal'){
+  return `
+  <svg viewBox="0 0 240 140">
 
+    <!-- 침대 다리 -->
+    <rect x="20" y="90" width="8" height="18" fill="#7A5B43"/>
+    <rect x="190" y="90" width="8" height="18" fill="#7A5B43"/>
+
+    <!-- 침대 프레임 -->
     <rect x="20"
     y="80"
     width="180"
     height="20"
+    rx="4"
     fill="#8C6E52"/>
 
-    <rect x="30"
-    y="60"
-    width="150"
-    height="25"
+    <!-- 베개 -->
+    <rect
+    x="145"
+    y="48"
+    width="35"
+    height="20"
+    rx="8"
+    fill="#E8EDF7"/>
+
+    <!-- 이불 -->
+    <path d="
+    M30 60
+    Q70 52 120 60
+    Q150 65 180 60
+    L180 85
+    L30 85
+    Z"
     fill="#B2B8E6"/>
 
+    <!-- 이불 주름 -->
+    <path d="
+    M80 60
+    Q95 68 115 60"
+    stroke="#C8CDF2"
+    stroke-width="2"
+    fill="none"/>
+
+    <!-- 머리 -->
     <circle
     cx="160"
     cy="55"
-    r="12"
+    r="14"
     fill="#FFD2C4"/>
+
+    <!-- 머리카락 -->
+    <path d="
+    M146 52
+    Q150 35 172 40
+    Q180 42 174 54"
+    fill="#3A2D2A"/>
 
     ${
       state==="success"
       ? `
-      <circle cx="156" cy="52" r="2"/>
-      <circle cx="166" cy="52" r="2"/>
+      <!-- 눈 번쩍 -->
+      <circle cx="155" cy="54" r="2.8"/>
+      <circle cx="166" cy="54" r="2.8"/>
+
+      <!-- 당황 입 -->
+      <ellipse
+      cx="160"
+      cy="63"
+      rx="4"
+      ry="3"/>
       `
-      : `
+      :
+      `
+      <!-- 살짝 킹받는 편안한 눈 -->
+      <path
+      d="M151 53 Q155 56 159 53"
+      stroke="#222"
+      stroke-width="1.5"
+      fill="none"
+      stroke-linecap="round"/>
+
+      <path
+      d="M162 53 Q166 56 170 53"
+      stroke="#222"
+      stroke-width="1.5"
+      fill="none"
+      stroke-linecap="round"/>
+
+      <!-- 얄미운 미소 -->
+      <path
+      d="M156 62
+      Q160 65
+      165 62"
+      stroke="#FF8566"
+      stroke-width="1.5"
+      fill="none"
+      stroke-linecap="round"/>
+
+      <!-- 침 -->
+      <path
+      d="M170 64
+      Q172 68
+      170 72"
+      stroke="#A8E4FF"
+      stroke-width="2"
+      fill="none"/>
+
+      <!-- ZZZ -->
       <text
       x="190"
       y="30"
-      font-size="15">Z</text>
+      font-size="14"
+      fill="#B2B8E6">Z</text>
+
+      <text
+      x="200"
+      y="20"
+      font-size="18"
+      fill="#B2B8E6">Z</text>
       `
     }
 
-    </svg>
-    `;
-  }
+    <!-- 이불 위 손 -->
+    <circle
+    cx="120"
+    cy="68"
+    r="5"
+    fill="#FFD2C4"/>
 
-};
+  </svg>
+  `;
+}
 
 window.Characters=Characters;
