@@ -244,46 +244,192 @@ fill="#FFB2A8"/>
     `;
   },
 
-  getWolf(state='normal'){
-    return `
-    <svg viewBox="0 0 100 100">
+getWolf(state='normal'){
+return `
+<svg viewBox="0 0 120 100">
 
-      <ellipse cx="50"
-      cy="90"
-      rx="30"
-      ry="5"
-      fill="rgba(0,0,0,.2)"/>
+<!-- 그림자 -->
+<ellipse
+cx="58"
+cy="90"
+rx="34"
+ry="6"
+fill="rgba(0,0,0,.25)"/>
 
-      <path d="
-      M25 65
-      L35 40
-      L70 40
-      L80 65
-      Z"
-      fill="#6C7289"/>
+<!-- 꼬리 -->
+<path d="
+M20 58
+Q5 45 12 32
+Q24 38 30 58
+"
+fill="#555C70"/>
 
-      <polygon
-      points="70,35 80,20 85,35"
-      fill="#5E6375"/>
+<!-- 뒷다리 -->
+<rect x="35"
+y="65"
+width="8"
+height="18"
+rx="2"
+fill="#4B5162"/>
 
-      <polygon
-      points="60,35 65,20 72,35"
-      fill="#5E6375"/>
+<rect x="50"
+y="65"
+width="8"
+height="18"
+rx="2"
+fill="#5B6277"/>
 
-      ${
-        state==="staring"
-        ? `
-        <circle cx="40" cy="40" r="5" fill="red"/>
-        <circle cx="60" cy="40" r="5" fill="red"/>
-        `
-        : `
-        <circle cx="68" cy="35" r="3" fill="red"/>
-        `
-      }
+<!-- 앞다리 -->
+<rect x="70"
+y="65"
+width="8"
+height="18"
+rx="2"
+fill="#4B5162"/>
 
-    </svg>
-    `;
-  },
+<rect x="84"
+y="65"
+width="8"
+height="18"
+rx="2"
+fill="#5B6277"/>
+
+<!-- 몸통 -->
+<path d="
+M28 62
+Q40 40 70 42
+L92 62
+L88 70
+L30 70
+Z"
+fill="#666D82"/>
+
+<!-- 목털 -->
+<path d="
+M68 42
+L75 28
+L80 42
+L85 26
+L92 45
+"
+fill="#8088A0"/>
+
+<!-- 머리 -->
+<path d="
+M72 24
+L88 18
+L102 24
+L108 35
+L98 46
+L78 42
+L70 32
+Z"
+fill="#666D82"/>
+
+<!-- 귀 -->
+<polygon
+points="78,20 73,5 85,16"
+fill="#4F5567"/>
+
+<polygon
+points="95,22 102,7 104,20"
+fill="#4F5567"/>
+
+<!-- 귀 안쪽 -->
+<polygon
+points="79,18 76,10 82,15"
+fill="#FF8566"/>
+
+<polygon
+points="96,18 100,11 100,18"
+fill="#FF8566"/>
+
+<!-- 주둥이 -->
+<path d="
+M98 30
+L115 34
+L99 40
+"
+fill="#4B5162"/>
+
+<!-- 코 -->
+<circle
+cx="114"
+cy="34"
+r="2"
+fill="#111"/>
+
+<!-- 송곳니 -->
+<polygon
+points="99,38 102,44 105,38"
+fill="white"/>
+
+<polygon
+points="105,38 108,44 111,38"
+fill="white"/>
+
+${
+state==="staring"
+?
+`
+<!-- 정면 응시 눈 -->
+<circle cx="88" cy="30"
+r="4"
+fill="#FF3030"/>
+
+<circle cx="100" cy="30"
+r="4"
+fill="#FF3030"/>
+
+<circle cx="88" cy="30"
+r="1.5"
+fill="black"/>
+
+<circle cx="100" cy="30"
+r="1.5"
+fill="black"/>
+
+<!-- 눈썹 -->
+<line
+x1="83"
+y1="24"
+x2="91"
+y2="26"
+stroke="black"
+stroke-width="2"/>
+
+<line
+x1="105"
+y1="24"
+x2="97"
+y2="26"
+stroke="black"
+stroke-width="2"/>
+`
+:
+`
+<!-- 일반 눈 -->
+<path
+d="M90 28
+Q94 31 98 28"
+stroke="#FF4040"
+stroke-width="2"
+fill="none"/>
+
+<!-- 눈썹 -->
+<line
+x1="88"
+y1="24"
+x2="95"
+y2="26"
+stroke="black"
+stroke-width="2"/>
+`
+}
+
+</svg>
+`;
+},
 
   getHumanInBed(state='normal'){
     return `
